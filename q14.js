@@ -4,10 +4,11 @@ function evaluateEmployees(employees) {
     });
   
     let performanceEmployees = filteredEmployees.map(function(employee) {
-      let performance;
+      let performance = "";
+  
       if (employee.rating > 4.5) {
         performance = "Excellent";
-      } else if (employee.rating >= 3 && employee.rating <= 4.5) {
+      } else if (employee.rating >= 3) {
         performance = "Good";
       } else {
         performance = "Needs Improvement";
@@ -16,13 +17,7 @@ function evaluateEmployees(employees) {
       return { name: employee.name, performance: performance };
     });
   
-    let sortedEmployees = performanceEmployees.sort(function(a, b) {
-      const performanceOrder = { "Excellent": 3, "Good": 2, "Needs Improvement": 1 };
-  
-      return performanceOrder[b.performance] - performanceOrder[a.performance];
-    });
-  
-    return sortedEmployees;
+    return performanceEmployees;
   }
   
   let employees = [
